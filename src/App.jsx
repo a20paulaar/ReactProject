@@ -1,25 +1,20 @@
 
-import './App.css';
-import Product from './Product/Product.jsx';
-import data from '../data.json';
+import React, { useState } from 'react';
+import ProductList from './ProductList/ProductList.jsx';
+import Header from './Header/Header.jsx';
+import Footer from './Footer/Footer.jsx';
 
 
 function App() {
+  const [filter, setFilter] = useState('');
+
   return(
-      <>
-      <div className='main-products-list'>
-        {data.map((product, index) => (
-          <Product
-            key={index}
-            title={product.title}
-            desc={product.description}
-            image={product.image}
-            price={product.price}
-          />
-        ))}
-      </div>
-      </>
-);
+    <>
+      <Header onFilterChange={setFilter}/>
+      <ProductList filter={filter}/>
+      <Footer/>
+    </>
+  );
 
 }
 

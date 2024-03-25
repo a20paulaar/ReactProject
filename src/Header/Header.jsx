@@ -1,7 +1,14 @@
 import './Header.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React, {useState} from 'react';
 
-function Header(){
+function Header( { onFilterChange } ){
+    const [filterText, setFilterText] = useState('');
+    const handleInputChange = (e) => {
+        const newText = e.target.value;
+        setFilterText(newText);
+        onFilterChange(newText);
+    }
     return(
         <>
             <header>
@@ -13,7 +20,9 @@ function Header(){
                         <li><a href='#'>OFERTAS</a></li>
                         <li><a href='#'>CONTACTO</a></li>
                     </ul>
-                    <input type='text' name='header-searchbar' id='header-searchbar' placeholder='Buscar productos'/>
+                    <div className='header-searchbar'>
+                        <input type='text' value={filterText} placeholder='Buscar productos'onChange={handleInputChange}/>
+                    </div>
                     <div className='icons'>
                         <FontAwesomeIcon icon="fa-solid fa-cart-shopping" />
                         <FontAwesomeIcon icon="fa-regular fa-heart" />

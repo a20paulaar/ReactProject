@@ -39,7 +39,7 @@ header{
     border-radius: 10px;
 }
 
-#header-searchbar{
+.header-searchbar{
     color: black;
     background-color: white;
     border-radius: 10px;
