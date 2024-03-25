@@ -1,0 +1,25 @@
+footer{
+    background-color: black;
+    color: white;
+}
+
+#footer-main{
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+#footer-main ul{
+    list-style: none;
+}
+#footer-main ul>li:first-child{
+    font-weight: bold;
+    font-size: 1.2em;
+}
+#footer-main a{
+    color: white;
+}
+
+#footer-copyright{
+    text-align: center;
+    padding-top: 5px;
+}

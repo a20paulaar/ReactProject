@@ -1,0 +1,48 @@
+header{
+    text-decoration: none;
+    position: sticky;
+    top: 0;
+    color: white;
+}
+.header-main-bar{
+    background-color: black;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+}
+.header-main-bar ul{
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+}
+.header-main-bar ul li{
+    margin: 0 10px;
+}
+.header-main-bar a{
+    color: white;
+}
+.icons{
+    color: white;
+    width: 50px;
+    display: flex;
+}
+.header-secondary-bar{
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    padding: 30px 0;
+}
+
+.header-discount-banner{
+    background-color: black;
+    padding: 20px 250px;
+    border-radius: 10px;
+}
+
+#header-searchbar{
+    color: black;
+    background-color: white;
+    border-radius: 10px;
+    width: 33%;
+    padding: 5px;
+}

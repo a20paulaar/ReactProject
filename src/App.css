@@ -1,0 +1,6 @@
+.main-products-list{
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
