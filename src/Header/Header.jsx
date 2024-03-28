@@ -1,9 +1,11 @@
 import './Header.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, {useState} from 'react';
+import cartIcon from '../assets/cart-shopping-solid.svg';
+import heartIcon from '../assets/heart-regular.svg';
+import userIcon from '../assets/user-regular.svg';
 
 function Header( { onFilterChange } ){
-    const [filterText, setFilterText] = useState('');
+    const [filterText, setFilterText] = useState();
     const handleInputChange = (e) => {
         const newText = e.target.value;
         setFilterText(newText);
@@ -24,9 +26,9 @@ function Header( { onFilterChange } ){
                         <input type='text' value={filterText} placeholder='Buscar productos'onChange={handleInputChange}/>
                     </div>
                     <div className='icons'>
-                        <FontAwesomeIcon icon="fa-solid fa-cart-shopping" />
-                        <FontAwesomeIcon icon="fa-regular fa-heart" />
-                        <FontAwesomeIcon icon="fa-regular fa-user" />
+                        <img src={cartIcon}/>
+                        <img src={heartIcon}/>
+                        <img src={userIcon}/>
                     </div>
                 </div>
                 <div className='header-secondary-bar'>

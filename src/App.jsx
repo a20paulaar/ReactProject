@@ -1,17 +1,17 @@
 
-import React, { useState } from 'react';
+import React, { useState } from 'react';  
 import ProductList from './ProductList/ProductList.jsx';
 import Header from './Header/Header.jsx';
 import Footer from './Footer/Footer.jsx';
 
 
 function App() {
-  const [filter, setFilter] = useState('');
+  const [filtro, setFiltro] = useState();
 
   return(
     <>
-      <Header onFilterChange={setFilter}/>
-      <ProductList filter={filter}/>
+      <Header onFilterChange={setFiltro}/>
+      <ProductList filtro={filtro}/>
       <Footer/>
     </>
   );
