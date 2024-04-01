@@ -6,7 +6,6 @@ header{
     max-width: 100vw;
 }
 .header-main-bar{
-    background-color: black;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -27,7 +26,7 @@ header{
     color: white;
     display: flex;
     align-content: center;
-    gap: 10px;
+    gap: 15px;
 }
 .icons img{
     width: 20px;
@@ -42,7 +41,7 @@ header{
 }
 
 .header-discount-banner{
-    background-color: black;
+    background: linear-gradient(to right,black, #263545);;
     padding: 20px 250px;
     border-radius: 10px;
 }
@@ -51,6 +50,6 @@ header{
     color: black;
     background-color: white;
     border-radius: 10px;
-    width: 300px;
+    width: 500px;
     padding: 5px;
 }

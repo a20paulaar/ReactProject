@@ -1,9 +1,9 @@
 import './Footer.css';
 
-function Footer(){
+function Footer({darkMode}){
     return(
         <>
-        <footer>
+        <footer className={darkMode ? 'dark-mode' : 'light-mode'}>
             <div id='footer-main'>
                 <ul id='contact'>
                     <li>Contacto</li>
