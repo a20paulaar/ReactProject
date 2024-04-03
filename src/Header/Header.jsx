@@ -1,34 +1,28 @@
 import './Header.css';
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import circleIcon from '../assets/circle-half-stroke-solid.svg';
 import cartIcon from '../assets/cart-shopping-solid.svg';
 import heartIcon from '../assets/heart-regular.svg';
 import userIcon from '../assets/user-regular.svg';
+import useCart from '../customHooks/useCart';
+import useTheme from '../customHooks/useTheme';
+import useLog from '../customHooks/useLog';
 
-function Header( { onFilterChange, onDarkModeChange, onToggleCart } ){
+function Header( { onFilterChange, onToggleCart, onShowProducts } ){
     const [filterText, setFilterText] = useState();
     const handleInputChange = (e) => {
         const newText = e.target.value;
         setFilterText(newText);
         onFilterChange(newText);
     }
-    const [darkMode, setDarkMode] = useState(false);
-    const toggleDarkMode = () => {
-        setDarkMode(!darkMode);
-        onDarkModeChange(!darkMode);
-    };
-    const [userData, setUserData] = useState(null);
-    useEffect(() => {
-    const savedUserData = JSON.parse(localStorage.getItem('userData'));
-    if (savedUserData) {
-      setUserData(savedUserData);
-    }
-  }, []);
+    const { changeTheme } = useTheme();
+    const { cartList } = useCart();
+    const { userData } = useLog();
     return(
         <>
             <header>
-                <div className={`header-main-bar ${darkMode ? 'dark-mode' : 'light-mode'}`}>
-                    <h2>MiTienda</h2>
+                <div className='header-main-bar'>
+                    <h2 onClick={onShowProducts}>MiTienda</h2>
                     <ul>
                         <li><a href='#'>INICIO</a></li>
                         <li><a href='#'>CATEGORÍAS</a></li>
@@ -38,15 +32,26 @@ function Header( { onFilterChange, onDarkModeChange, onToggleCart } ){
                     <div className='header-searchbar'>
                         <input type='text' value={filterText} placeholder='Buscar productos'onChange={handleInputChange}/>
                     </div>
-                    <div className='icons'>
-                        <img onClick={toggleDarkMode} src={circleIcon}/>
-                        <img onClick={onToggleCart} src={cartIcon}/>
-                        <img src={heartIcon}/>
-                        <img src={userIcon}/>
-                    </div>
+                    <ul className='icons'>
+                        <li>
+                            <img onClick={() => changeTheme()} src={circleIcon}/>
+                        </li>
+                        <li>
+                            <img onClick={onToggleCart} src={cartIcon}/>
+                            { cartList.length > 0 && (
+                                <div className='cart-badge'>{cartList.length}</div>
+                            )}
+                        </li>
+                        <li>
+                            <img src={heartIcon}/>
+                        </li>
+                        <li>
+                            <img src={userIcon}/>
+                        </li>
+                    </ul>
                 </div>
                 <div className='header-secondary-bar'>
-                    <div className='header-discount-banner'> {userData ? <p>¡{userData.user}, aprovéchate de tu 20% de descuento!</p> : <p>Crea una cuenta para disfrutar de nuestros descuentos</p>}</div>
+                    <div className='header-discount-banner'> {userData ? <p>¡{userData.name}, aprovéchate de tu 20% de descuento!</p> : <p>Crea una cuenta para disfrutar de nuestros descuentos</p>}</div>
                 </div>
             </header>
         </>

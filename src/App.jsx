@@ -1,7 +1,7 @@
-
 import React, { useState } from 'react';  
 import ProductList from './ProductList/ProductList.jsx';
 import CartList from './CartList/CartLIST.JSX';
+import useTheme from './customHooks/useTheme.js';
 import Header from './Header/Header.jsx';
 import Footer from './Footer/Footer.jsx';
 import Login from './Login/Login.jsx';
@@ -9,18 +9,21 @@ import Login from './Login/Login.jsx';
 
 function App() {
   const [filtro, setFiltro] = useState();
-  const [darkMode, setDarkMode] = useState(false);
+  const {darkMode} = useTheme();
   const [showCart, setShowCart] = useState(false);
   const handleToggleCart = () => {
-    setShowCart(!showCart);
+    setShowCart(true);
   };
+  const handleShowProducts = () => {
+    setShowCart(false);
+  }
   return(
-    <>
-      <Header onFilterChange={setFiltro} onDarkModeChange={setDarkMode} onToggleCart={handleToggleCart}/>
+    <div className={darkMode ? 'dark-mode' : ''}>
+      <Header onFilterChange={setFiltro} onToggleCart={handleToggleCart} onShowProducts={handleShowProducts}/>
       { showCart ? <CartList/> : <ProductList filtro={filtro}/> }
       <Login/>
-      <Footer darkMode={darkMode}/>
-    </>
+      <Footer/>
+    </div>
   );
 
 }

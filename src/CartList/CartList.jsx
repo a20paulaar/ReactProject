@@ -1,19 +1,34 @@
-import './ProductList.css';
-import CartProduct from './CartProduct.jsx';
+import './CartList.css';
+import React from 'react';
+import CartProduct from '../CartProduct/CartProduct';
+import useCart from '../customHooks/useCart';
 
+function CartList() {
+  const { cartProducts } = useCart();
+  const groupCartItems = cartProducts.reduce((acc, product) => {
+    if(!acc[product.id]){
+      acc[product.id] = {...product, count:1};
+    } else {
+      acc[product.id].count++;
+    }
+    return acc;
+  }, {});
 
-function CartList({cart}) {
-  const totalPrice = cart.reduce((acc, product) => acc + product.price, 0);
+  const uniqueItems = Object.values(groupCartItems);
+
+  const totalPrice = uniqueItems.reduce((acc, product) => acc + product.price * product.count, 0);
+
   return(
       <>
+      <h2>Carrito de Compras</h2>
       <div className='cart-products-list'>
-        {cart.map((product) => (
+        {uniqueItems.map((product) => (
           <CartProduct
             key={product.id}
             title={product.title}
             image={product.image}
             price={product.price}
-            quantity={product.quantity}
+            quantity={product.count}
             
           />
         ))}
