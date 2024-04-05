@@ -1,5 +1,5 @@
 import './Product.css';
-import { useCart } from '../customHooks/useCart.js';
+import useCart from '../customHooks/useCart.js';
 import React from 'react';
 
 const Product = (props) => {

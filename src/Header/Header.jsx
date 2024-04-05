@@ -4,7 +4,7 @@ import circleIcon from '../assets/circle-half-stroke-solid.svg';
 import cartIcon from '../assets/cart-shopping-solid.svg';
 import heartIcon from '../assets/heart-regular.svg';
 import userIcon from '../assets/user-regular.svg';
-import useCart from '../customHooks/useCart';
+import useCart from '../customHooks/useCart.js';
 import useTheme from '../customHooks/useTheme';
 import useLog from '../customHooks/useLog';
 
@@ -38,9 +38,8 @@ function Header( { onFilterChange, onToggleCart, onShowProducts } ){
                         </li>
                         <li>
                             <img onClick={onToggleCart} src={cartIcon}/>
-                            { cartList.length > 0 && (
-                                <div className='cart-badge'>{cartList.length}</div>
-                            )}
+                            {cartList > 0 && <p className='cart-badge'>{cartList.length}</p>}
+                            
                         </li>
                         <li>
                             <img src={heartIcon}/>
@@ -51,7 +50,7 @@ function Header( { onFilterChange, onToggleCart, onShowProducts } ){
                     </ul>
                 </div>
                 <div className='header-secondary-bar'>
-                    <div className='header-discount-banner'> {userData ? <p>¡{userData.name}, aprovéchate de tu 20% de descuento!</p> : <p>Crea una cuenta para disfrutar de nuestros descuentos</p>}</div>
+                    <div className='header-discount-banner'> {userData.name ? <p>¡{userData.name}, aprovéchate de tu 20% de descuento!</p> : <p>Crea una cuenta para disfrutar de nuestros descuentos</p>}</div>
                 </div>
             </header>
         </>

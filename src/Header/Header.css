@@ -20,6 +20,10 @@ header{
 .header-main-bar>ul>li{
     margin: 0 10px;
 }
+.dark-mode .header-main-bar {
+    background-color: black;
+  }
+  
 .icons{
     color: white;
     display: flex;
@@ -49,11 +53,13 @@ header{
     padding: 20px 250px;
     border-radius: 10px;
 }
-
+header a{
+    color: white;
+}
 .header-searchbar input{
     color: black;
     background-color: white;
     border-radius: 10px;
-    width: 500px;
+    width: 30vw;
     padding: 5px;
 }

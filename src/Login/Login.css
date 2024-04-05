@@ -1,11 +1,11 @@
 .login-banner{
     display: flex;
-    justify-content: center;
-}
-form{
+    flex-direction:column ;
     border: 1px solid #c5c5c5;
     border-radius: 5px;
     background-color: #f8f8f8;
+}
+form{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -25,4 +25,17 @@ input{
     width: 80%;
     border-radius: 5px;
     padding: 5px;
+    color: black;
+}
+.logout-data{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 80%;
+    align-self: center;
+}
+.login-container{
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
 }

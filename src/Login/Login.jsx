@@ -3,7 +3,7 @@ import React from 'react';
 import useLog from '../customHooks/useLog';
 
 function Login() {
-    const { isLoggedIn, handleLogin, handleLogout, userData } = useLog();
+    const { isLogged, handleLogin, handleLogout, userData } = useLog();
     const handleSubmit = (e) => {
         e.preventDefault();
         const form = e.target;
@@ -17,19 +17,21 @@ function Login() {
         }
     };
   return(
+    <div className='login-container'>
       <div className='login-banner'>
           <form onSubmit={handleSubmit}>
-              <label htmlFor="login-name">Nombre:</label>
+              <label htmlFor="loginName">Nombre:</label>
               <input type="text" name="loginName"/>
-              <label htmlFor="login-email">Email:</label>
+              <label htmlFor="loginEmail">Email:</label>
               <input type="text" name='loginEmail'/>
-              {!isLoggedIn && <button type='submit' className='login-button'>Login</button>}
+              {!isLogged && <button type='submit' className='login-button'>Login</button>}
           </form>
-          {isLoggedIn && <div className='logout-data'>
+          {isLogged && <div className='logout-data'>
                 <button onClick={handleLogout}>Logout</button>
                 <p>¿Quieres cerrar sesión, {userData.name}?</p>
             </div>}
       </div>
+    </div>
     )
 }
 

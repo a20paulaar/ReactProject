@@ -8,7 +8,7 @@ import Login from './Login/Login.jsx';
 
 
 function App() {
-  const [filtro, setFiltro] = useState();
+  const [filtro, setFiltro] = useState('');
   const {darkMode} = useTheme();
   const [showCart, setShowCart] = useState(false);
   const handleToggleCart = () => {

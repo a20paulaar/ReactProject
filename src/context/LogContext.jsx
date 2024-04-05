@@ -30,9 +30,9 @@ export const LogProvider = ({children}) => {
    const logContextValue = {isLogged, userData, handleLogin, handleLogout};
 
    return (
-    <LogContext value={logContextValue}>
+    <LogContext.Provider value={logContextValue}>
         {children}
-    </LogContext>
+    </LogContext.Provider>
    );
 
 }

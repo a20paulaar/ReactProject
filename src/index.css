@@ -23,6 +23,7 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+  max-width: 100vw;
 }
 
 h1 {
@@ -60,8 +61,4 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
-}
-
-.header-main-bar .dark-mode, footer .dark-mode{
-  background-color: black;
 }
