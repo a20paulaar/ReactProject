@@ -7,8 +7,10 @@ import userIcon from '../assets/user-regular.svg';
 import useCart from '../customHooks/useCart.js';
 import useTheme from '../customHooks/useTheme';
 import useLog from '../customHooks/useLog';
+import { Link, Outlet } from 'react-router-dom';
 
-function Header( { onFilterChange, onToggleCart, onShowProducts } ){
+
+function Header( { onFilterChange} ){
     const [filterText, setFilterText] = useState();
     const handleInputChange = (e) => {
         const newText = e.target.value;
@@ -22,12 +24,12 @@ function Header( { onFilterChange, onToggleCart, onShowProducts } ){
         <>
             <header>
                 <div className='header-main-bar'>
-                    <h2 onClick={onShowProducts}>MiTienda</h2>
+                    <h2><Link to="/">MiTienda</Link></h2>
                     <ul>
-                        <li><a href='#'>INICIO</a></li>
-                        <li><a href='#'>CATEGORÍAS</a></li>
-                        <li><a href='#'>OFERTAS</a></li>
-                        <li><a href='#'>CONTACTO</a></li>
+                        <li><Link to='/'>INICIO</Link></li>
+                        <li><Link href='#'>CATEGORÍAS</Link></li>
+                        <li><Link href='#'>OFERTAS</Link></li>
+                        <li><Link href='#'>CONTACTO</Link></li>
                     </ul>
                     <div className='header-searchbar'>
                         <input type='text' value={filterText} placeholder='Buscar productos'onChange={handleInputChange}/>
@@ -37,9 +39,8 @@ function Header( { onFilterChange, onToggleCart, onShowProducts } ){
                             <img onClick={() => changeTheme()} src={circleIcon}/>
                         </li>
                         <li>
-                            <img onClick={onToggleCart} src={cartIcon}/>
-                            {cartList > 0 && <p className='cart-badge'>{cartList.length}</p>}
-                            
+                            <Link to="/cart"><img src={cartIcon}/></Link>                    
+                            {cartList > 0 && <p className='cart-badge'>{cartList.length}</p>}     
                         </li>
                         <li>
                             <img src={heartIcon}/>

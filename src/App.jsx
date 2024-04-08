@@ -5,25 +5,30 @@ import useTheme from './customHooks/useTheme.js';
 import Header from './Header/Header.jsx';
 import Footer from './Footer/Footer.jsx';
 import Login from './Login/Login.jsx';
-
+import ProductDetails from './ProductDetails/ProductDetails.jsx';
+import NotFound from './NotFound/NotFound.jsx';
+import ProtectedRoute from './ProtectedRoute.jsx';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 function App() {
-  const [filtro, setFiltro] = useState('');
   const {darkMode} = useTheme();
-  const [showCart, setShowCart] = useState(false);
-  const handleToggleCart = () => {
-    setShowCart(true);
-  };
-  const handleShowProducts = () => {
-    setShowCart(false);
-  }
+  const [filtro, setFiltro] = useState('');
   return(
-    <div className={darkMode ? 'dark-mode' : ''}>
-      <Header onFilterChange={setFiltro} onToggleCart={handleToggleCart} onShowProducts={handleShowProducts}/>
-      { showCart ? <CartList/> : <ProductList filtro={filtro}/> }
-      <Login/>
-      <Footer/>
-    </div>
+      <div className={darkMode ? 'dark-mode' : ''}>
+        <BrowserRouter>
+          <Header onFilterChange={setFiltro}/>
+          <Routes>
+            <Route path="/" element={<ProductList filtro={filtro}/>} />
+            <Route path="/login" element={<Login/>} />
+            <ProtectedRoute>
+              <Route path="/cart" element={<CartList/>} />
+              <Route path="/products/:productId" element={<ProductDetails/>}/>
+            </ProtectedRoute>
+            <Route path="*" element={<NotFound/>}/>
+          </Routes>
+          <Footer/>
+        </BrowserRouter>
+      </div>
   );
 
 }
