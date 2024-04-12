@@ -18,6 +18,10 @@ function CartList() {
 
   const totalPrice = uniqueItems.reduce((acc, product) => acc + product.price * product.count, 0);
 
+  const handleBuy = () => {
+    alert('Vas a ser redirigido a la pasarela de pagos.');
+    clearCart();
+  }
   return(
       <>
       <h2 className='cart-title'>Carrito de Compras</h2>
@@ -34,11 +38,11 @@ function CartList() {
         ))}
       </div>
       {cartItems.length == 0 && <h3 className='cart-empty-text'>El carrito está vacío</h3>}
-      <p className='total-price-list'>Total: ${totalPrice}</p>
-      <div className='cart-buttons-container'>
+      <p className='total-price-list'>Total a pagar: ${totalPrice}</p>
+      {cartItems.length > 0 && <div className='cart-buttons-container'>
+        <button className='button-buy-cart' onClick={handleBuy}>Comprar</button>
         <button className='button-empty-cart' onClick={() => clearCart()}>Resetear carrito</button>
-        <button className='button-buy-cart'>Comprar</button>
-      </div>
+      </div>}
       </>
 );
 

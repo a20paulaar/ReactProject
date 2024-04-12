@@ -1,7 +1,7 @@
 import './Login.css';
 import React from 'react';
 import useLog from '../customHooks/useLog';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate, Link } from 'react-router-dom';
 
 function Login() {
     const { isLogged, handleLogin, handleLogout, userData } = useLog();
@@ -15,7 +15,7 @@ function Login() {
         if (name && email){
             handleLogin({name, email});
             form.reset();
-            navigate(location.state.pathname);
+            navigate('/');
         } else {
             alert('Rellene todos los campos.');
         }
@@ -27,6 +27,7 @@ function Login() {
   return(
     <div className='login-container'>
       <div className='login-banner'>
+        <Link to="/">Volver</Link>
           <form onSubmit={handleSubmit}>
               <label htmlFor="loginName">Nombre:</label>
               <input type="text" name="loginName"/>
