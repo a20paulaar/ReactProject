@@ -12,13 +12,12 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 function App() {
   const {darkMode} = useTheme();
-  const [filtro, setFiltro] = useState('');
   return(
       <div className={darkMode ? 'dark-mode' : ''}>
         <BrowserRouter>
-          <Header onFilterChange={setFiltro}/>
+          <Header/>
           <Routes>
-            <Route path="/" element={<ProductList filtro={filtro}/>} />
+            <Route path="/" element={<ProductList/>} />
             <Route path="/login" element={<Login/>} />
               {/*<ProtectedRoute>*/}
                 <Route path="/cart" element={<CartList/>} />

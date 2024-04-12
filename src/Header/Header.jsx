@@ -7,21 +7,21 @@ import userIcon from '../assets/user-regular.svg';
 import useCart from '../customHooks/useCart.js';
 import useTheme from '../customHooks/useTheme';
 import useLog from '../customHooks/useLog';
-import { Link, Outlet } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import useFilter from '../customHooks/useFilter.js';
 
 
-function Header( { onFilterChange} ){
-    const [filterText, setFilterText] = useState();
-    const handleInputChange = (e) => {
-        const newText = e.target.value;
-        setFilterText(newText);
-        onFilterChange(newText);
-    }
+function Header(){
+    const { filter, changeFilter } = useFilter();
     const { changeTheme } = useTheme();
     const { cartItems } = useCart();
-
-    console.warn(cartItems);
     const { userData } = useLog();
+
+    const handleInputChange = (e) => {
+        const newText = e.target.value;
+        changeFilter(newText);
+    }
+
     return(
         <>
             <header>
@@ -34,7 +34,7 @@ function Header( { onFilterChange} ){
                         <li><Link href='#'>CONTACTO</Link></li>
                     </ul>
                     <div className='header-searchbar'>
-                        <input type='text' value={filterText} placeholder='Buscar productos'onChange={handleInputChange}/>
+                        <input type='text' value={filter} placeholder='Buscar productos'onChange={handleInputChange}/>
                     </div>
                     <ul className='icons'>
                         <li>

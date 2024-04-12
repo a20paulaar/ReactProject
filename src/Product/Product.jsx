@@ -2,6 +2,7 @@ import './Product.css';
 import useCart from '../customHooks/useCart.js';
 import useLog from '../customHooks/useLog.js';
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Product = (props) => {
     const { addToCart } = useCart();
@@ -9,7 +10,7 @@ const Product = (props) => {
     const {id, title, price, desc, image, rating} = props;
     return(
         <div className='product-card' id={id}>
-            <div className='product-img' style={{ backgroundImage: `url('${image}')`, backgroundSize: 'cover'}}></div>
+            <Link to={`/products/${id}`}><div className='product-img' style={{ backgroundImage: `url('${image}')`, backgroundSize: 'cover'}}></div></Link>
             <div className='product-title'>{title}</div>
             <p className='product-description'>{desc}</p>
             <p className='product-rating'>Rating: {rating.rate} ({rating.count} reviews)</p>

@@ -4,6 +4,7 @@ import App from './App.jsx';
 import {ThemeProvider} from './context/ThemeContext.jsx';
 import {CartProvider} from './context/CartContext.jsx';
 import {LogProvider} from './context/LogContext.jsx';
+import { FilterProvider } from './context/FilterContext.jsx';
 import './index.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -11,7 +12,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <ThemeProvider>
       <LogProvider>
         <CartProvider>
-          <App />
+          <FilterProvider>
+            <App />
+          </FilterProvider>
         </CartProvider>
       </LogProvider>
     </ThemeProvider> 

@@ -9,3 +9,21 @@
     flex-direction: column;
     gap: 20px;
 }
+.cart-empty-text{
+    text-align: center;
+}
+
+.cart-buttons-container{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.button-empty-cart{
+    background-color: red;
+}
+
+.button-buy-cart{
+    background-color: blue;
+}

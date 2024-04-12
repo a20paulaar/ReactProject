@@ -1,11 +1,12 @@
 import './Login.css';
 import React from 'react';
 import useLog from '../customHooks/useLog';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 function Login() {
     const { isLogged, handleLogin, handleLogout, userData } = useLog();
     const navigate = useNavigate();
+    const location = useLocation();
     const handleSubmit = (e) => {
         e.preventDefault();
         const form = e.target;
@@ -14,7 +15,7 @@ function Login() {
         if (name && email){
             handleLogin({name, email});
             form.reset();
-            navigate('/');
+            navigate(location.state.pathname);
         } else {
             alert('Rellene todos los campos.');
         }

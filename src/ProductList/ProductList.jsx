@@ -1,11 +1,13 @@
 import './ProductList.css';
 import Product from '../Product/Product.jsx';
 import data from '../../data.json';
+import useFilter from '../customHooks/useFilter.js';
 
-function ProductList({ filtro }) {
-    /*const products = data.filter((product) => {
-        product.title.toLowerCase().includes(filtro.toLowerCase())
-    });*/
+function ProductList() {
+  const { filter } = useFilter();
+    const products = data.filter((product) => {
+        product.title.toLowerCase().includes(filter.toLowerCase())
+    });
   return(
       <>
       <div className='main-products-list'>
