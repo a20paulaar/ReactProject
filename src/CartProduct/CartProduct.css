@@ -1,0 +1,21 @@
+.cart-product-card{
+    display: flex;
+    justify-content: space-around;
+    width: 50vw;
+    gap: 20px;
+    align-self: center;
+}
+.cart-product-badge{
+    background-color: aqua;
+    color: white;
+    width: 20px;
+    border-radius: 100%;
+    text-align: center;
+    float: inline-end;
+}
+.cart-product-details{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}

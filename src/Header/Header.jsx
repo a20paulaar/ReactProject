@@ -18,7 +18,9 @@ function Header( { onFilterChange} ){
         onFilterChange(newText);
     }
     const { changeTheme } = useTheme();
-    const { cartList } = useCart();
+    const { cartItems } = useCart();
+
+    console.warn(cartItems);
     const { userData } = useLog();
     return(
         <>
@@ -38,15 +40,15 @@ function Header( { onFilterChange} ){
                         <li>
                             <img onClick={() => changeTheme()} src={circleIcon}/>
                         </li>
-                        <li>
-                            <Link to="/cart"><img src={cartIcon}/></Link>                    
-                            {cartList > 0 && <p className='cart-badge'>{cartList.length}</p>}     
+                        <li className='cart-list-item'>
+                            {cartItems.length > 0 ? <p className='cart-badge'>{cartItems.length}</p> : ''}
+                            <Link to="/cart"><img src={cartIcon}/></Link>                          
                         </li>
                         <li>
                             <img src={heartIcon}/>
                         </li>
                         <li>
-                            <img src={userIcon}/>
+                            <Link to="/login"><img src={userIcon}/></Link>
                         </li>
                     </ul>
                 </div>

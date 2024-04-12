@@ -19,6 +19,10 @@ function Login() {
             alert('Rellene todos los campos.');
         }
     };
+    const handleLogouts = () => {
+        handleLogout();
+        navigate('/');
+    }
   return(
     <div className='login-container'>
       <div className='login-banner'>
@@ -30,7 +34,7 @@ function Login() {
               {!isLogged && <button type='submit' className='login-button'>Login</button>}
           </form>
           {isLogged && <div className='logout-data'>
-                <button onClick={handleLogout}>Logout</button>
+                <button onClick={handleLogouts}>Logout</button>
                 <p>¿Quieres cerrar sesión, {userData.name}?</p>
             </div>}
       </div>

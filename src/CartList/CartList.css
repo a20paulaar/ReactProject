@@ -1,0 +1,11 @@
+.total-price-list{
+    text-align: center;
+}
+.cart-title{
+    text-align: center;
+}
+.cart-products-list{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}

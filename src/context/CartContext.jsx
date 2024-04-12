@@ -7,10 +7,16 @@ export const CartProvider = ({children}) => {
 
     const addToCart = (item) => {
         setCartItems([...cartItems, item]);
+        console.log('Añadido');
+        console.log(cartItems);
     };
 
+    const clearCart = () => {
+        setCartItems([]);
+    }
+
     return(
-        <CartContext.Provider value={{cartItems, addToCart}}>
+        <CartContext.Provider value={{cartItems, addToCart, clearCart}}>
             {children}
         </CartContext.Provider>
     );

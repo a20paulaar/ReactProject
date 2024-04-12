@@ -20,10 +20,10 @@ function App() {
           <Routes>
             <Route path="/" element={<ProductList filtro={filtro}/>} />
             <Route path="/login" element={<Login/>} />
-            <ProtectedRoute>
-              <Route path="/cart" element={<CartList/>} />
-              <Route path="/products/:productId" element={<ProductDetails/>}/>
-            </ProtectedRoute>
+              {/*<ProtectedRoute>*/}
+                <Route path="/cart" element={<CartList/>} />
+                <Route path="/products/:productId" element={<ProductDetails/>}/>
+              {/*</ProtectedRoute>*/}
             <Route path="*" element={<NotFound/>}/>
           </Routes>
           <Footer/>

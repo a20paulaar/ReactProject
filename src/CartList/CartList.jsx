@@ -4,8 +4,8 @@ import CartProduct from '../CartProduct/CartProduct';
 import useCart from '../customHooks/useCart';
 
 function CartList() {
-  const { cartProducts } = useCart();
-  const groupCartItems = cartProducts.reduce((acc, product) => {
+  const { cartItems } = useCart();
+  const groupCartItems = cartItems.reduce((acc, product) => {
     if(!acc[product.id]){
       acc[product.id] = {...product, count:1};
     } else {
@@ -20,7 +20,7 @@ function CartList() {
 
   return(
       <>
-      <h2>Carrito de Compras</h2>
+      <h2 className='cart-title'>Carrito de Compras</h2>
       <div className='cart-products-list'>
         {uniqueItems.map((product) => (
           <CartProduct
@@ -33,7 +33,7 @@ function CartList() {
           />
         ))}
       </div>
-      <p>Total: ${totalPrice}</p>
+      <p className='total-price-list'>Total: ${totalPrice}</p>
       </>
 );
 
