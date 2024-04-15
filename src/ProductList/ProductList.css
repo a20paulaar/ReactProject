@@ -5,3 +5,7 @@
     justify-content: center;
     gap: 20px;
   }
+
+  .product-admin-add-new{
+    background-color: #fe0000;
+}

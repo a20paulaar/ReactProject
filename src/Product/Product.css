@@ -9,6 +9,7 @@
     min-height: 600px;
     max-height: 600px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    background-color: white;
 }
 .product-card img{
     width: 250px;
@@ -25,7 +26,7 @@
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
-
+    min-height: 30px;
 }
 
 .product-price-tag{
@@ -55,4 +56,14 @@
 .product-rating{
     color: #0070ff;
     margin-left: 10px;
+}
+.product-icons-admin{
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    padding: 10px;
+}
+.product-icons-admin img{
+    width: 20px;
+    cursor: pointer;
 }

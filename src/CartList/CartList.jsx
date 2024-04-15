@@ -41,7 +41,7 @@ function CartList() {
       <p className='total-price-list'>Total a pagar: ${totalPrice}</p>
       {cartItems.length > 0 && <div className='cart-buttons-container'>
         <button className='button-buy-cart' onClick={handleBuy}>Comprar</button>
-        <button className='button-empty-cart' onClick={() => clearCart()}>Resetear carrito</button>
+        <button className='button-empty-cart' onClick={() => clearCart()}>Vaciar carrito</button>
       </div>}
       </>
 );

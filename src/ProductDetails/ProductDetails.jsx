@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams, Link } from "react-router-dom";
 import useCart from "../customHooks/useCart";
-import data from '../../data.json';
+import data from '../../data/db.json';
 import './ProductDetails.css';
 
 const ProductDetails = () => {

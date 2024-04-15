@@ -6,6 +6,7 @@ import {CartProvider} from './context/CartContext.jsx';
 import {LogProvider} from './context/LogContext.jsx';
 import { FilterProvider } from './context/FilterContext.jsx';
 import { RouterProvider } from 'react-router-dom';
+import { ProductsProvider } from './context/ProductsContext.jsx';
 import './index.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -14,7 +15,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <LogProvider>
         <CartProvider>
           <FilterProvider>
-            <RouterProvider router={App} />
+            <ProductsProvider>
+              <RouterProvider router={App} />
+            </ProductsProvider>
           </FilterProvider>
         </CartProvider>
       </LogProvider>

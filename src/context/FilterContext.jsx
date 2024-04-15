@@ -3,14 +3,14 @@ import React, { createContext, useState } from "react";
 export const FilterContext = createContext();
 
 export const FilterProvider = ({children}) => {
-    const [filter, setFilter] = useState('');
+    const [filtro, setFiltro] = useState(' ');
 
     const changeFilter = (filterText) => {
-        setFilter(filterText);
+        setFiltro(filterText);
     };
 
     return (
-        <FilterContext.Provider value={{filter, changeFilter}}>
+        <FilterContext.Provider value={{filtro, changeFilter}}>
             {children}
         </FilterContext.Provider>
     );

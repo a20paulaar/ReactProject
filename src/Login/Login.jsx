@@ -15,7 +15,7 @@ function Login() {
         if (name && email){
             handleLogin({name, email});
             form.reset();
-            navigate('/');
+            navigate(location.state.pathname);
         } else {
             alert('Rellene todos los campos.');
         }

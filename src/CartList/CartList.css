@@ -21,9 +21,9 @@
 }
 
 .button-empty-cart{
-    background-color: red;
+    background-color: #fe0000;
 }
 
 .button-buy-cart{
-    background-color: blue;
+    background-color: #0070ff;
 }

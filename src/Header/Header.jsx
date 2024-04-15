@@ -1,5 +1,5 @@
 import './Header.css';
-import React, {useState} from 'react';
+import React from 'react';
 import circleIcon from '../assets/circle-half-stroke-solid.svg';
 import cartIcon from '../assets/cart-shopping-solid.svg';
 import heartIcon from '../assets/heart-regular.svg';
@@ -12,7 +12,7 @@ import useFilter from '../customHooks/useFilter.js';
 
 
 function Header(){
-    const { filter, changeFilter } = useFilter();
+    const { filtro, changeFilter } = useFilter();
     const { changeTheme } = useTheme();
     const { cartItems } = useCart();
     const { userData } = useLog();
@@ -34,7 +34,7 @@ function Header(){
                         <li><Link href='#'>CONTACTO</Link></li>
                     </ul>
                     <div className='header-searchbar'>
-                        <input type='text' value={filter} placeholder='Buscar productos'onChange={handleInputChange}/>
+                        <input type='text' value={filtro} placeholder='Buscar productos'onChange={handleInputChange}/>
                     </div>
                     <ul className='icons'>
                         <li>

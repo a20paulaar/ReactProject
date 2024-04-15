@@ -15,7 +15,7 @@ export const App = createBrowserRouter([
     errorElement: <NotFound/>,
     children: [
       {path: '/', element: <ProductList/>},
-      {path: '/product/:productId',
+      {path: '/products/:productId',
       element: (
         <ProtectedRoute>
           <ProductDetails/>

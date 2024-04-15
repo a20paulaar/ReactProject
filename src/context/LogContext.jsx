@@ -16,7 +16,8 @@ export const LogProvider = ({children}) => {
 
    const handleLogin = ({name, email}) => {
     setIsLogged(true);
-    const newUserData = {name, email};
+    const role = email.includes('@admin') ? 'admin' : 'usuario';
+    const newUserData = {name, email, role};
     setUserData(newUserData);
     localStorage.setItem('userData', JSON.stringify(newUserData));
    };

@@ -37,9 +37,10 @@ header{
     width: 20px;
     height: 20px;
     filter: invert();
+    cursor: pointer;
 }
 .cart-badge{
-    background-color: aqua;
+    background-color: #0070ff;
     color: white;
     width: 15px;
     font-size: 10px;
