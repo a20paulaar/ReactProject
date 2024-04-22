@@ -33,7 +33,7 @@ const Product = (props) => {
                     <img src={editIcon} onClick={openModal}/>
                     <img src={deleteIcon} onClick={() => deleteProduct(id)}/>
                 </div>}
-                <div className='product-title'>{title} {id}</div>
+                <div className='product-title'>{title}</div>
                 <p className='product-description'>{desc}</p>
                 <p className='product-rating'>Rating: {rating.rate} ({rating.count} reviews)</p>
                 <p className='product-price-tag'>&#36; {price}</p>
