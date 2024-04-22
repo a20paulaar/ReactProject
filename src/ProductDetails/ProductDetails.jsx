@@ -1,12 +1,13 @@
 import React from "react";
 import { useParams, Link } from "react-router-dom";
 import useCart from "../customHooks/useCart";
-import data from '../../data/db.json';
+import useProducts from "../customHooks/useProducts";
 import './ProductDetails.css';
 
 const ProductDetails = () => {
     const { productId } = useParams();
-    const product = data.find((product) => product.id === parseInt(productId));
+    const { products } = useProducts();
+    const product = products.find((product) => product.id === parseInt(productId));
     const { addToCart } = useCart();
     if(!product){
         console.log(productId);

@@ -11,9 +11,10 @@ import ModifyProduct from '../ModifyProduct/ModifyProduct.jsx';
 const Product = (props) => {
     const { addToCart } = useCart();
     const { isLogged, userData } = useLog();
-    const {deleteProduct} = useProducts();
+    const {deleteProduct, modifyProduct} = useProducts();
     const {id, title, price, desc, image, rating} = props;
     const [isModalOpen, setIsModalOpen] = useState(false);
+    console.log(props);
     const openModal = () => {
         setIsModalOpen(true);
     }
@@ -24,15 +25,15 @@ const Product = (props) => {
 
     return(
         <>
-            {isModalOpen && <ModifyProduct closeModal={closeModal}/>}
+            {isModalOpen && <ModifyProduct closeModal={closeModal} modifyProduct={modifyProduct} product={props}/>}
             <div className='product-card' id={id}>
                 <Link to={`/products/${id}`}><div className='product-img' style={{ backgroundImage: `url('${image}')`, backgroundSize: 'cover'}}></div></Link>
                 {userData.role =='admin' && 
                 <div className='product-icons-admin'>
                     <img src={editIcon} onClick={openModal}/>
-                    <img src={deleteIcon} onClick={() => deleteProduct()}/>
+                    <img src={deleteIcon} onClick={() => deleteProduct(id)}/>
                 </div>}
-                <div className='product-title'>{title}</div>
+                <div className='product-title'>{title} {id}</div>
                 <p className='product-description'>{desc}</p>
                 <p className='product-rating'>Rating: {rating.rate} ({rating.count} reviews)</p>
                 <p className='product-price-tag'>&#36; {price}</p>

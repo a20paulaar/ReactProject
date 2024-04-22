@@ -4,12 +4,14 @@ import data from '../../data/db.json';
 import useFilter from '../customHooks/useFilter.js';
 import useLog from '../customHooks/useLog.js';
 import AddProduct from '../AddProduct/AddProduct.jsx';
-
 import { useState } from 'react';
+import useProducts from '../customHooks/useProducts.js';
+
 function ProductList() {
   const { filtro } = useFilter();
   const { userData } = useLog();
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const { products, loading, addProduct } = useProducts();
   const openModal = () => {
     setIsModalOpen(true);
   }
@@ -18,17 +20,19 @@ function ProductList() {
     setIsModalOpen(false);
   }
 
-  const products = data.filter((product) => {
+  /*const filteredProducts = data.filter((product) => {
       product.title.toLowerCase().includes(filtro.toLowerCase())
-  });
+  });*/
 
   return(
       <>
       {isModalOpen && <AddProduct
       closeModal={closeModal}
+      addProduct={addProduct}
       />}
-      <div className='main-products-list'>
-        {data.map((product) => (
+      {loading ? <div>Loading products</div> : 
+        <div className='main-products-list'>
+        {products.map((product) => (
           <Product
             key={product.id}
             id={product.id}
@@ -40,6 +44,8 @@ function ProductList() {
           />
         ))}
       </div>
+      }
+      
       {userData.role == 'admin' && <button className='product-admin-add-new' onClick={openModal}>Añadir nuevo producto</button>}
       </>
 );
