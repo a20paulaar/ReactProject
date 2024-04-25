@@ -37,11 +37,11 @@ const productsSlice = createSlice({
             })
             .addCase(modifyProductThunk.fulfilled, (state, action) => {
                 state.loading = false;
-                const updatedProduct = {
+                const modifiedProduct = {
                     ...action.payload
                 };
                 state.products = state.products.map((product) => {
-                    product.id === updatedProduct.id ? updatedProduct : product;
+                    product.id === modifiedProduct.id ? modifiedProduct : product;
                 }
                 );
 

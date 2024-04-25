@@ -9,7 +9,7 @@ function ModifyProduct({ closeModal, product}){
         id: product.id,
         title: product.title,
         price: product.price,
-        description: product.desc,
+        description: product.description,
     });
     
     const handleInputChange = (e) => {
@@ -22,13 +22,13 @@ function ModifyProduct({ closeModal, product}){
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(product);
         const updatedProduct = {
+            ...product,
             ...editedFields
         };
         console.log(updatedProduct);
         // Importante: Mandar los parámetros como un objeto!
-        dispatch( modifyProductThunk( { id: product.id, modifiedProduct: updatedProduct } ));
+        dispatch( modifyProductThunk({ id: product.id, modifiedProduct: updatedProduct }));
         closeModal();
     };
 

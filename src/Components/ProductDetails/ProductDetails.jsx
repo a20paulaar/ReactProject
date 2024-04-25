@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import useCart from "../../customHooks/useCart";
-import useProducts from "../../customHooks/useProducts";
+//import useProducts from "../../customHooks/useProducts";
 import { useSelector } from "react-redux";
 import { selectLoading, selectProducts } from "../../redux/slices/productsSlice";
 import './ProductDetails.css';

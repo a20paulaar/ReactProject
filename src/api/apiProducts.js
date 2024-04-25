@@ -22,6 +22,7 @@ export const deleteProduct = async (id) => {
 export const modifyProduct = async (id, modifiedProduct) => {
     try{
         const response = await axios.put(`${API_URL}/${id}`, modifiedProduct);
+        console.log(id, modifiedProduct);
         return response.data;
     } catch(error){
        throw error;

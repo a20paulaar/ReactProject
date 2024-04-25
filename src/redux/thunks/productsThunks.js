@@ -19,7 +19,7 @@ export const addProductThunk = createAsyncThunk(
 export const modifyProductThunk = createAsyncThunk(
     'products/modifyProduct',
     async ({id, modifiedProduct}) => {
-        return await modifyProduct({id, modifiedProduct})
+        return await modifyProduct(id, modifiedProduct)
     }
 );
 

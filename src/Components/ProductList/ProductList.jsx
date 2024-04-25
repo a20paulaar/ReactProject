@@ -15,7 +15,7 @@ function ProductList() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   //const { products, loading, addProduct } = useProducts();
   const dispatch = useDispatch();
-  
+
   const productsList = useSelector(selectProducts);
   useEffect(() => {
     dispatch(getProductsThunk())
@@ -45,7 +45,7 @@ function ProductList() {
             key={product.id}
             id={product.id}
             title={product.title}
-            desc={product.description}
+            description={product.description}
             image={product.image}
             price={product.price}
             rating={product.rating}

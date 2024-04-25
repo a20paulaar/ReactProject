@@ -15,7 +15,7 @@ const Product = (props) => {
     const { isLogged, userData } = useLog();
     //const {deleteProduct, modifyProduct} = useProducts();
     const dispatch = useDispatch();
-    const {id, title, price, desc, image, rating} = props;
+    const {id, title, price, description, image, rating} = props;
     const [isModalOpen, setIsModalOpen] = useState(false);
     const openModal = () => {
         setIsModalOpen(true);
@@ -36,7 +36,7 @@ const Product = (props) => {
                     <img src={deleteIcon} onClick={() => dispatch(deleteProductThunk(id))}/>
                 </div>}
                 <div className='product-title'>{title}</div>
-                <p className='product-description'>{desc}</p>
+                <p className='product-description'>{description}</p>
                 <p className='product-rating'>Rating: {rating.rate} ({rating.count} reviews)</p>
                 <p className='product-price-tag'>&#36; {price}</p>
                 {isLogged && <button className='product-add-to-cart' onClick={() => addToCart(props)}>Agregar al carrito</button>}
