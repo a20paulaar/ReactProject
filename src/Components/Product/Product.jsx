@@ -17,7 +17,6 @@ const Product = (props) => {
     const dispatch = useDispatch();
     const {id, title, price, desc, image, rating} = props;
     const [isModalOpen, setIsModalOpen] = useState(false);
-    console.log(props);
     const openModal = () => {
         setIsModalOpen(true);
     }

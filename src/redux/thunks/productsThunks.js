@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-import { getProducts, modifyProduct, deleteProduct, addProduct, getProductById } from "../../api/apiProducts";
+import { getProducts, modifyProduct, deleteProduct, addProduct } from "../../api/apiProducts";
 
 export const getProductsThunk = createAsyncThunk(
     'products/getProducts',
@@ -27,12 +27,5 @@ export const deleteProductThunk = createAsyncThunk(
     'products/deleteProduct',
     async (id) => {
         await deleteProduct(id)
-    }
-);
-
-export const getProductByIdThunk = createAsyncThunk(
-    'products/getProductById',
-    async (id) => {
-        await getProductById(id)
     }
 );

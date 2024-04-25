@@ -1,21 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import useCart from "../../customHooks/useCart";
 import useProducts from "../../customHooks/useProducts";
 import { useSelector } from "react-redux";
-import { selectLoading, selectProducts, selectSelectedProduct } from "../../redux/slices/productsSlice";
+import { selectLoading, selectProducts } from "../../redux/slices/productsSlice";
 import './ProductDetails.css';
 
 const ProductDetails = () => {
     const { productId } = useParams();
     const loading = useSelector(selectLoading);
-    const { product } = useSelector(selectSelectedProduct);
-    const productss = products.find((product) => product.id === parseInt(productId));
+    const products = useSelector(selectProducts);
+    const product = products.find(product => product.id === productId);
     const { addToCart } = useCart();
     if(loading){
         console.log(productId);
         return <p>Loading product. . .</p>
     }
+    console.log(products);
     return(
         <div className="product-details-card">
             <Link to="/">Volver</Link>

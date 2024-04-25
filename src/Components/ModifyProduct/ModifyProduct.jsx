@@ -4,7 +4,6 @@ import { useDispatch } from 'react-redux';
 import { modifyProductThunk } from '../../redux/thunks/productsThunks';
 
 function ModifyProduct({ closeModal, product}){
-    console.log(product);
     const dispatch = useDispatch();
     const [editedFields,setEditedFields] = useState({
         id: product.id,
@@ -25,9 +24,9 @@ function ModifyProduct({ closeModal, product}){
         e.preventDefault();
         console.log(product);
         const updatedProduct = {
-            ...product,
             ...editedFields
         };
+        console.log(updatedProduct);
         // Importante: Mandar los parámetros como un objeto!
         dispatch( modifyProductThunk( { id: product.id, modifiedProduct: updatedProduct } ));
         closeModal();

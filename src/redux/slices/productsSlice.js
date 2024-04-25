@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-import { getProductsThunk, getProductByIdThunk, addProductThunk, deleteProductThunk, modifyProductThunk } from "../thunks/productsThunks";
+import { getProductsThunk, addProductThunk, deleteProductThunk, modifyProductThunk } from "../thunks/productsThunks";
 
 const initialState = {
     products: [],
@@ -34,15 +34,6 @@ const productsSlice = createSlice({
                 state.loading = false;
                 state.error = 'Error al cargar productos.'
 
-            })
-            .addCase(getProductByIdThunk.fulfilled, (state, action) => {
-                state.loading = false;
-                state.selectedProduct = action.payload;
-            })
-            .addCase(getProductByIdThunk.rejected, (state, action) => {
-                state.loading = false;
-                const id = action.meta.arg;
-                state.error = `Error al cargar el producto con id: ${id}.`
             })
             .addCase(modifyProductThunk.fulfilled, (state, action) => {
                 state.loading = false;

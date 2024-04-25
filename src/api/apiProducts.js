@@ -36,12 +36,3 @@ export const addProduct = async (product) => {
         throw error;
     }
 };
-
-export const getProductById = async (id) => {
-    try{
-        const response = await axios.post(`${API_URL}/${id}`);
-        return response.data;
-    } catch(error) {
-        throw error;
-    }
-}
