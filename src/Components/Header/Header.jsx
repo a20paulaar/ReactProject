@@ -1,14 +1,14 @@
 import './Header.css';
 import React from 'react';
-import circleIcon from '../assets/circle-half-stroke-solid.svg';
-import cartIcon from '../assets/cart-shopping-solid.svg';
-import heartIcon from '../assets/heart-regular.svg';
-import userIcon from '../assets/user-regular.svg';
-import useCart from '../customHooks/useCart.js';
-import useTheme from '../customHooks/useTheme';
-import useLog from '../customHooks/useLog';
+import circleIcon from '../../assets/circle-half-stroke-solid.svg';
+import cartIcon from '../../assets/cart-shopping-solid.svg';
+import heartIcon from '../../assets/heart-regular.svg';
+import userIcon from '../../assets/user-regular.svg';
+import useCart from '../../customHooks/useCart.js';
+import useTheme from '../../customHooks/useTheme';
+import useLog from '../../customHooks/useLog';
 import { Link } from 'react-router-dom';
-import useFilter from '../customHooks/useFilter.js';
+import useFilter from '../../customHooks/useFilter.js';
 
 
 function Header(){

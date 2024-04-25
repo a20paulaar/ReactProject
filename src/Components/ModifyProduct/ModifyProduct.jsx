@@ -1,9 +1,13 @@
 import './ModifyProduct.css';
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { modifyProductThunk } from '../../redux/thunks/productsThunks';
 
-function ModifyProduct({modifyProduct, closeModal, product}){
+function ModifyProduct({ closeModal, product}){
     console.log(product);
+    const dispatch = useDispatch();
     const [editedFields,setEditedFields] = useState({
+        id: product.id,
         title: product.title,
         price: product.price,
         description: product.desc,
@@ -20,7 +24,12 @@ function ModifyProduct({modifyProduct, closeModal, product}){
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log(product);
-        modifyProduct(editedFields);
+        const updatedProduct = {
+            ...product,
+            ...editedFields
+        };
+        // Importante: Mandar los parámetros como un objeto!
+        dispatch( modifyProductThunk( { id: product.id, modifiedProduct: updatedProduct } ));
         closeModal();
     };
 

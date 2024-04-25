@@ -1,7 +1,10 @@
 import './AddProduct.css';
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { addProductThunk } from '../../redux/thunks/productsThunks';
 
-function AddProduct({closeModal, addProduct}){
+function AddProduct({closeModal}){
+    const dispatch = useDispatch();
     const [newProduct, setNewProduct] = useState({
         title: '',
         price: 0,
@@ -16,7 +19,7 @@ function AddProduct({closeModal, addProduct}){
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        addProduct(newProduct);
+        dispatch(addProductThunk(newProduct));
         closeModal();
     };
 

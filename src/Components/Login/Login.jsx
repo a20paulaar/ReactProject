@@ -1,6 +1,6 @@
 import './Login.css';
 import React from 'react';
-import useLog from '../customHooks/useLog';
+import useLog from '../../customHooks/useLog';
 import { useLocation, useNavigate, Link } from 'react-router-dom';
 
 function Login() {

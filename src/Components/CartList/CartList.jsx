@@ -1,7 +1,7 @@
 import './CartList.css';
 import React from 'react';
 import CartProduct from '../CartProduct/CartProduct';
-import useCart from '../customHooks/useCart';
+import useCart from '../../customHooks/useCart';
 
 function CartList() {
   const { cartItems, clearCart } = useCart();

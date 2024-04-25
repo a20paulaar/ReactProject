@@ -1,11 +1,11 @@
 import React from 'react';  
-import ProductList from './ProductList/ProductList.jsx';
-import CartList from './CartList/CartLIST.JSX';
-import Login from './Login/Login.jsx';
-import ProductDetails from './ProductDetails/ProductDetails.jsx';
-import NotFound from './NotFound/NotFound.jsx';
+import ProductList from './Components/ProductList/ProductList.jsx';
+import CartList from './Components/CartList/CartLIST.JSX';
+import Login from './Components/Login/Login.jsx';
+import ProductDetails from './Components/ProductDetails/ProductDetails.jsx';
+import NotFound from './Components/NotFound/NotFound.jsx';
 import ProtectedRoute from './ProtectedRoute.jsx';
-import Layout from './Layout/Layout.jsx';
+import Layout from './Components/Layout/Layout.jsx';
 import { createBrowserRouter} from 'react-router-dom';
 
 export const App = createBrowserRouter([

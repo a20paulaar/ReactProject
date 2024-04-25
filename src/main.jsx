@@ -6,21 +6,22 @@ import {CartProvider} from './context/CartContext.jsx';
 import {LogProvider} from './context/LogContext.jsx';
 import { FilterProvider } from './context/FilterContext.jsx';
 import { RouterProvider } from 'react-router-dom';
-import { ProductsProvider } from './context/ProductsContext.jsx';
 import './index.css';
+import store from './redux/store.js';
+import { Provider } from "react-redux";
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <ThemeProvider>
-      <LogProvider>
-        <CartProvider>
-          <FilterProvider>
-            <ProductsProvider>
+    <Provider store={store}>
+      <ThemeProvider>
+        <LogProvider>
+          <CartProvider>
+            <FilterProvider>
               <RouterProvider router={App} />
-            </ProductsProvider>
-          </FilterProvider>
-        </CartProvider>
-      </LogProvider>
-    </ThemeProvider> 
+            </FilterProvider>
+          </CartProvider>
+        </LogProvider>
+      </ThemeProvider>
+    </Provider>
   </React.StrictMode>
 )
