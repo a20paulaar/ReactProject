@@ -4,7 +4,7 @@ import Product from '../Product/Product.jsx';
 import useFilter from '../../customHooks/useFilter.js';
 import useLog from '../../customHooks/useLog.js';
 import AddProduct from '../AddProduct/AddProduct.jsx';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 //import useProducts from '../../customHooks/useProducts.js';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectLoading, selectProducts } from '../../redux/slices/productsSlice.js';
@@ -15,8 +15,12 @@ function ProductList() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   //const { products, loading, addProduct } = useProducts();
   const dispatch = useDispatch();
-  const products = dispatch(getProductsThunk());
+  
   const productsList = useSelector(selectProducts);
+  useEffect(() => {
+    dispatch(getProductsThunk())
+  }, [productsList]);
+
   const loading = useSelector(selectLoading);
   const openModal = () => {
     setIsModalOpen(true);
@@ -25,7 +29,6 @@ function ProductList() {
   const closeModal = () => {
     setIsModalOpen(false);
   }
-console.log(productsList);
   /*const filteredProducts = data.filter((product) => {
       product.title.toLowerCase().includes(filtro.toLowerCase())
   });*/
