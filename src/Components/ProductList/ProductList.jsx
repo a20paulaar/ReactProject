@@ -20,7 +20,7 @@ function ProductList() {
   useEffect(() => {
     dispatch(getProductsThunk())
   }, [productsList]);
-
+  console.log(filtro);
   const loading = useSelector(selectLoading);
   const openModal = () => {
     setIsModalOpen(true);

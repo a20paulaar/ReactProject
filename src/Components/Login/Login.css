@@ -39,3 +39,7 @@ input{
     justify-content: center;
     margin: 10px 0;
 }
+
+.login-errors{
+    color: red;
+}

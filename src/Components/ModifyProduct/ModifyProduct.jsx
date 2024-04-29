@@ -1,10 +1,12 @@
 import './ModifyProduct.css';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useForm } from 'react-hook-form';
 import { modifyProductThunk } from '../../redux/thunks/productsThunks';
 
 function ModifyProduct({ closeModal, product}){
     const dispatch = useDispatch();
+    const { register, handleSubmit, formState : {errors} } = useForm();
     const [editedFields,setEditedFields] = useState({
         id: product.id,
         title: product.title,
@@ -20,8 +22,7 @@ function ModifyProduct({ closeModal, product}){
         }));
     };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
+    const onSubmit = handleSubmit(() => {
         const updatedProduct = {
             ...product,
             ...editedFields
@@ -30,19 +31,26 @@ function ModifyProduct({ closeModal, product}){
         // Importante: Mandar los parámetros como un objeto!
         dispatch( modifyProductThunk({ id: product.id, modifiedProduct: updatedProduct }));
         closeModal();
-    };
+    });
 
     return(
         <div className='add-product-modal'>
             <div className='modify-product-form'>
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={onSubmit}>
                 <h2>Modificar producto</h2>
                 <label htmlFor="title">Título:</label>
                 <input type="text" name="title" onChange={handleInputChange} value={editedFields.title}/>
                 <label htmlFor="price">Precio:</label>
-                <input type="text" name='price'onChange={handleInputChange} value={editedFields.price}/>
+                <input type="text" name='price'onChange={handleInputChange} value={editedFields.price}{... register('price', {
+                    min: { value: 0, message: 'El precio del producto tiene que ser mayor que cero.'}
+                  }) }/>
+                { errors.price && <span className='login-errors'>{errors.price.message}</span> }
                 <label htmlFor="description">Descripción:</label>
-                <input type="text" name='description' onChange={handleInputChange} value={editedFields.description}/>
+                <input type="text" name='description' onChange={handleInputChange} value={editedFields.description}{... register('description', {
+                    minLength: { value: 6, message: 'La descripción es demasiado corta.'},
+                    maxLength: { value: 300, message: 'La descripción es demasiado larga.'}
+                  }) }/>
+                { errors.description && <span className='login-errors'>{errors.description.message}</span> }
                 <button type='submit' className='save-button'>Guardar</button>
                 </form>
             </div>

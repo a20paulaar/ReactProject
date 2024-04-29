@@ -3,7 +3,7 @@ import useCart from '../../customHooks/useCart.js';
 import useLog from '../../customHooks/useLog.js';
 import deleteIcon from '../../assets/trash-solid.svg'
 import editIcon from '../../assets/pencil-solid.svg';
-import useProducts from '../../customHooks/useProducts.js';
+//import useProducts from '../../customHooks/useProducts.js';
 import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
 import ModifyProduct from '../ModifyProduct/ModifyProduct.jsx';
